@@ -31,9 +31,15 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/css/reborn.scss",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/scripts/jq.js",
+              "src/assets/scripts/hoverflow.js",
+              "src/assets/scripts/slider.js",
+              "src/assets/scripts/init.js"
+            ]
           },
           "configurations": {
             "production": {
