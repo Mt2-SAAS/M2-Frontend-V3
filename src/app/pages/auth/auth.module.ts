@@ -4,8 +4,8 @@ import { NgModule } from '@angular/core';
 import { AuthRoutingModule } from './auth.routing';
 
 // Components
-import { IngresarComponent } from './ingresar/ingresar.component';
-import { RegistroComponent } from './registro/registro.component';
+import { LoginComponent } from './login/login.component';
+import { JoinComponent } from './join/join.component';
 
 // Local Services
 import { AuthService } from './auth.service';
@@ -16,8 +16,8 @@ import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
     declarations: [
-        IngresarComponent,
-        RegistroComponent
+        LoginComponent,
+        JoinComponent
     ],
     imports: [
         SharedModule,

@@ -27,6 +27,6 @@ export class AuthService {
     logOut(): void {
         this.stg.delete_token();
         this.stg.delete_item('user');
-        this.router.navigate(['/inicio']);
+        this.router.navigate(['/home']);
     }
 }

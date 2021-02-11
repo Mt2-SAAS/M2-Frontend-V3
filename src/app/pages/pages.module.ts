@@ -1,30 +1,34 @@
 import { NgModule } from '@angular/core';
+// import { CommonModule } from '@angular/common';
 
 // Components
-import { DescargasComponent } from './descargas/descargas.component';
-import { DonacionesComponent } from './donaciones/donaciones.component';
-import { ExitoComponent } from './exito/exito.component';
-import { GremiosComponent } from './gremios/gremios.component';
-import { JugadoresComponent } from './jugadores/jugadores.component';
-import { InicioComponent } from './inicio/inicio.component';
-import { TerminosComponent } from './terminos/terminos.component';
+import { DownloadsComponent } from './downloads/downloads.component';
+import { SuccessComponent } from './success/success.component';
+import { GuildsComponent } from './guilds/guilds.component';
+import { PlayersComponent } from './players/players.component';
+import { HomeComponent } from './home/home.component';
+import { TermsComponent } from './terms/terms.component';
+import { SustainabilityComponent } from './sustainability/sustainability.component';
 
 // Local Modules
 import { SharedModule } from '../shared/shared.module';
 import { PagesRoutingModule } from './pages.routing';
 
 
+
+
 @NgModule({
     declarations: [
-        DescargasComponent,
-        DonacionesComponent,
-        ExitoComponent,
-        GremiosComponent,
-        JugadoresComponent,
-        InicioComponent,
-        TerminosComponent
+        DownloadsComponent,
+        SuccessComponent,
+        GuildsComponent,
+        PlayersComponent,
+        HomeComponent,
+        TermsComponent,
+        SustainabilityComponent
     ],
     imports: [
+        // CommonModule,
         SharedModule,
         PagesRoutingModule
     ],

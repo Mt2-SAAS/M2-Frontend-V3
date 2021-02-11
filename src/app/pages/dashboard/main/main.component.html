@@ -1,0 +1,24 @@
+<div *ngIf="!loading; else elseblock">
+    <table>
+        <tr>
+            <th>Usuario</th>
+            <th>Email</th>
+            <th>Nombre Real</th>
+            <th>MDS</th>
+            <th>Fecha Registro</th>
+        </tr>
+        <tr>
+            <td> {{ user['login']  }} </td>
+            <td> {{ user['email'] }} </td>
+            <td> {{ user['real_name']  }} </td>
+            <td> {{ user['coins'] }} </td>
+            <td> {{ user['create_time'] | date }} </td>
+        </tr>
+    </table>
+    
+    <button (click)="logOut()" class="boton-madera" type="button" name="button"> Cerrar Sesión</button>
+</div>
+
+<ng-template #elseblock>
+    <loader></loader>
+</ng-template>

@@ -2,37 +2,44 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 // Componets
-import { InicioComponent } from './inicio/inicio.component';
-import { JugadoresComponent } from './jugadores/jugadores.component';
-import { GremiosComponent } from './gremios/gremios.component';
-import { TerminosComponent } from './terminos/terminos.component';
-import { DescargasComponent } from './descargas/descargas.component';
-import { ExitoComponent } from './exito/exito.component';
-import { AuthGuardService } from '../services';
+import { HomeComponent } from './home/home.component';
+import { PlayersComponent } from './players/players.component';
+import { GuildsComponent } from './guilds/guilds.component';
+import { TermsComponent } from './terms/terms.component';
+import { DownloadsComponent } from './downloads/downloads.component';
+import { SuccessComponent } from './success/success.component';
+import { SustainabilityComponent } from './sustainability/sustainability.component';
 
 // Guards
+import { AuthGuardService } from '../services';
 
 const routes: Routes = [
     {
         path: '',
-        redirectTo: '/inicio',
+        redirectTo: '/home',
         pathMatch: 'full'
     },
-    { path: 'inicio', component: InicioComponent },
-    { path: 'jugadores', component: JugadoresComponent },
-    { path: 'gremios', component: GremiosComponent },
-    { path: 'terminos', component: TerminosComponent },
-    { path: 'descargas', component: DescargasComponent },
-    { path: 'exito', component: ExitoComponent },
+    { path: 'home', component: HomeComponent },
+    { path: 'players', component: PlayersComponent },
+    { path: 'guilds', component: GuildsComponent },
+    { path: 'terminos', component: TermsComponent },
+    { path: 'downloads', component: DownloadsComponent },
+    { path: 'success', component: SuccessComponent },
+    { path: 'sustainability', component: SustainabilityComponent},
     // Lazy Load Routes
     {
         path: 'auth',
         loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
     },
     {
-        path: 'panel_usuario',
+        path: 'user',
         loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
-        canLoad: [AuthGuardService]
+        canLoad: [AuthGuardService],
+        canActivate: [AuthGuardService]
+    },
+    {
+        path: 'pages',
+        loadChildren: () => import('./custom/custom.module').then(m => m.CustomPagesModule)
     }
 ];
 

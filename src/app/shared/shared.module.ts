@@ -10,6 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { GuildInfoComponent } from './guildinfo/guildinfo.component';
 import { PlayerInfoComponent } from './playerinfo/playerinfo.component';
 import { ServerInfoComponent } from './serverinfo/serverinfo.component';
+import { LoaderComponent } from './loader/loader.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ServerInfoComponent } from './serverinfo/serverinfo.component';
         NavbarComponent,
         GuildInfoComponent,
         PlayerInfoComponent,
-        ServerInfoComponent
+        ServerInfoComponent,
+        LoaderComponent
     ],
     imports: [
         CommonModule,
@@ -33,7 +35,8 @@ import { ServerInfoComponent } from './serverinfo/serverinfo.component';
         NavbarComponent,
         GuildInfoComponent,
         PlayerInfoComponent,
-        ServerInfoComponent
+        ServerInfoComponent,
+        LoaderComponent
     ],
     providers: [],
 })

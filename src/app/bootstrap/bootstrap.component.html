@@ -9,13 +9,10 @@
                         <!-- User Panel -->
                         <div class="sbox">
                             <app-serverinfo></app-serverinfo>
-                            <div class="sbui sbft">
-                            </div>
+                            <div class="sbui sbft"></div>
                         </div>
-                        <div class="clear">
-                        </div>
-                        <div class="clear">
-                        </div>
+                        <div class="clear"></div>
+                        <div class="clear"></div>
                         <app-guildinfo></app-guildinfo>
                     </div>
                 </div>
@@ -39,9 +36,9 @@
                 </div>
             </div>
             <div id="sidebar">
-                <a class="sb-download" [routerLink]="['/descargas']"></a>
+                <a class="sb-download" [routerLink]="['/downloads']"></a>
                 <a class="sb-community" target="_blank"></a>
-                <a class="sb-guide"></a>
+                <a class="sb-guide" [routerLink]="['/sustainability']" ></a>
                 <!-- <a class="sb-guide" [routerLink]="['/donaciones']"></a>-->
                 <div class="clear">
                 </div>
@@ -68,10 +65,10 @@
                             Last Team.</a></p>
                 </div>
                 <div class="f-right">
-                    <a [routerLink]="['/inicio']">Inicio</a> &middot;
-                    <a [routerLink]="['/auth/registro']">Registro</a> &middot;
+                    <a [routerLink]="['/home']">Inicio</a> &middot;
+                    <a [routerLink]="['/auth/join']">Registro</a> &middot;
                     <!-- <a href="#">Equipo</a> &middot;-->
-                    <a [routerLink]="['/descargas']">Descarga</a> &middot;
+                    <a [routerLink]="['/downloads']">Descarga</a> &middot;
                 </div>
                 <div class="clear">
                 </div>

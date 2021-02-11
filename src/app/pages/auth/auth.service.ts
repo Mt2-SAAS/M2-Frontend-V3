@@ -33,7 +33,6 @@ export class AuthService {
     }
 
     private post(url: string, body: any) {
-        // const data = JSON.stringify(body);
         return this.http.post(url, body, this.get_headers());
     }
 

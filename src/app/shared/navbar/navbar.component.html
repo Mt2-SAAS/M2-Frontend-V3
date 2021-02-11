@@ -3,22 +3,22 @@
       <!--Inicio navegacion principal -->
       <ul>
         <li class="menu1">
-          <a [routerLink]="['/inicio']" style="font-size: 10px;"><span class="chinese">INICIO</span><br>HOME</a>
+          <a [routerLink]="['/home']" style="font-size: 10px;"><span class="chinese">INICIO</span><br>HOME</a>
         </li>
         <li class="menu2">
-          <a [routerLink]="['/auth/registro']" style="font-size: 10px;"><span class="chinese">REGISTRO</span><br>REGISTER</a>
+          <a [routerLink]="['/auth/join']" style="font-size: 10px;"><span class="chinese">REGISTRO</span><br>REGISTER</a>
         </li>
         <li class="menu3">
-          <a [routerLink]="['/descargas']" style="font-size: 10px;"><span class="chinese">DESCARGAR</span><br>DOWNLOAD</a>
+          <a [routerLink]="['/downloads']" style="font-size: 10px;"><span class="chinese">DESCARGAR</span><br>DOWNLOAD</a>
         </li>
         <li class="menu4">
-          <a [routerLink]="['/jugadores']" style="font-size: 10px;"><span class="chinese">TOP JUGADORES</span><br>PLAYER RANKING</a>
+          <a [routerLink]="['/players']" style="font-size: 10px;"><span class="chinese">TOP JUGADORES</span><br>PLAYER RANKING</a>
         </li>
         <li *ngIf="!auth.isAuthenticated()" class="menu8">          
-          <a [routerLink]="['/auth/ingresar']" style="font-size: 10px;"><span class="chinese">Ingresar </span><br>login</a>
+          <a [routerLink]="['/auth/login']" style="font-size: 10px;"><span class="chinese">Ingresar </span><br>login</a>
         </li>
         <li *ngIf="auth.isAuthenticated()" class="menu8">           
-          <a [routerLink]="['/panel_usuario']" style="font-size: 10px;"><span class="chinese">Panel Usuario </span><br>User Panel</a>
+          <a [routerLink]="['/user/main']" style="font-size: 10px;"><span class="chinese">Panel Usuario </span><br>User Panel</a>
         </li>
       </ul>
       <!-- subnavigation -->

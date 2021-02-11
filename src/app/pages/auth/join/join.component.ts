@@ -1,0 +1,72 @@
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+// Local Services
+import { AuthService } from '../auth.service';
+
+// Global Services
+import { TitleService } from 'src/app/services';
+
+
+@Component({
+    selector: 'app-join',
+    templateUrl: './join.component.html'
+})
+export class JoinComponent implements OnInit {
+
+    form!: FormGroup;
+    formInputValue = 'Registrar';
+    checkbox = false;
+
+    constructor(
+        private title: TitleService,
+        private router: Router,
+        private auth: AuthService
+    ) { }
+
+    ngOnInit() {
+        this.title.setTitle(this.title.servername + ' - Registro');
+
+        this.form = new FormGroup({
+            login: new FormControl('', [
+                Validators.required,
+                Validators.minLength(4)
+            ]),
+            password: new FormControl('', [
+                Validators.required,
+                Validators.minLength(4)
+            ]),
+            real_name: new FormControl('', [
+                Validators.required,
+                Validators.minLength(4)
+            ]),
+            email: new FormControl('', [
+                Validators.required,
+                Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')
+            ]),
+            social_id: new FormControl('', [
+                Validators.required,
+                Validators.pattern('.{7,7}')
+            ])
+        });
+
+     }
+
+    registro() {
+        this.auth.register(this.form.value)
+            .subscribe(
+                () => {
+                    this.router.navigate(['/success']);
+                },
+                err => {
+                    console.error(err);
+                }
+            );
+    }
+
+    truecheck() {
+        this.checkbox = !this.checkbox;
+        return this.checkbox;
+    }
+}
