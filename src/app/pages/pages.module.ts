@@ -7,13 +7,12 @@ import { SuccessComponent } from './success/success.component';
 import { GuildsComponent } from './guilds/guilds.component';
 import { PlayersComponent } from './players/players.component';
 import { HomeComponent } from './home/home.component';
-import { TermsComponent } from './terms/terms.component';
-import { SustainabilityComponent } from './sustainability/sustainability.component';
 
 // Local Modules
 import { SharedModule } from '../shared/shared.module';
 import { PagesRoutingModule } from './pages.routing';
 
+import { CustomPagesModule } from './custom/custom.module';
 
 
 
@@ -24,13 +23,12 @@ import { PagesRoutingModule } from './pages.routing';
         GuildsComponent,
         PlayersComponent,
         HomeComponent,
-        TermsComponent,
-        SustainabilityComponent
     ],
     imports: [
         // CommonModule,
         SharedModule,
-        PagesRoutingModule
+        PagesRoutingModule,
+        CustomPagesModule
     ],
     exports: [],
     providers: [],

@@ -6,6 +6,8 @@ import { AuthRoutingModule } from './auth.routing';
 // Components
 import { LoginComponent } from './login/login.component';
 import { JoinComponent } from './join/join.component';
+import { ActiveComponent } from './active/active.component';
+import { EmailComponent, PasswordComponent } from './loss/';
 
 // Local Services
 import { AuthService } from './auth.service';
@@ -17,7 +19,10 @@ import { SharedModule } from '../../shared/shared.module';
 @NgModule({
     declarations: [
         LoginComponent,
-        JoinComponent
+        JoinComponent,
+        ActiveComponent,
+        EmailComponent,
+        PasswordComponent
     ],
     imports: [
         SharedModule,

@@ -1,0 +1,35 @@
+<div class="postui post-con animated fadeIn fast">
+    <div class="con-wrap">
+        <h1>
+            Recordar usuario asociados Email
+        </h1>
+        <hr>
+
+        <p>
+            Ingresa tu correo y se enviaron los usuarios que tengas asociados a tu correo.
+        </p>
+
+        <div class="">
+            <!-- <form [formGroup]="form" (ngSubmit)="login()"> -->
+            <form [formGroup]="form">
+
+                <label>Email:</label>
+                <p>
+                    <input type="email"
+                           formControlName="email">
+                <span *ngIf="form.controls['email'].errors?.required && form.controls['email'].touched">El nombre de usuario es obligatorio.</span>
+                <span *ngIf="form.controls['email'].errors?.minlength">Por lo menos 4 caracteres.</span>
+                </p>
+        
+                <input  (click)="send()"
+                        type="submit"
+                        value="{{ formInputValue }}"
+                        [disabled]="!form.valid"/>
+                
+                <span *ngIf="mensaje"> Nombre de usuario o contraseña incorrecto </span>
+            
+            </form>
+        </div>
+
+    </div>
+</div>

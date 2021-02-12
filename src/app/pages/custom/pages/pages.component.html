@@ -1,11 +1,12 @@
 <div class="postui post-con animated fadeIn fast">
     <div class="con-wrap">
-        <h1> Titulo de la pagina </h1>
-        <hr>
 
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, aut? Sed eveniet dicta modi pariatur quaerat magni deleniti totam fugiat, molestias similique temporibus laudantium maxime excepturi. Sapiente voluptate magni illum!
-        </p>
+        <loader *ngIf="loading" ></loader>
+
+        <h1 *ngIf="!loading"> {{ title }} </h1>
+        <hr *ngIf="!loading">
+
+        <markdown *ngIf="!loading" class="variable-binding" [data]="markdown"></markdown>
 
     </div>
 </div>

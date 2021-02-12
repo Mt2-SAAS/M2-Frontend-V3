@@ -22,10 +22,8 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'players', component: PlayersComponent },
     { path: 'guilds', component: GuildsComponent },
-    { path: 'terminos', component: TermsComponent },
     { path: 'downloads', component: DownloadsComponent },
     { path: 'success', component: SuccessComponent },
-    { path: 'sustainability', component: SustainabilityComponent},
     // Lazy Load Routes
     {
         path: 'auth',

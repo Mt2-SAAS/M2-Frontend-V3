@@ -7,16 +7,27 @@ import { PagesComponent } from './pages/pages.component';
 import { SharedModule } from '../../shared/shared.module';
 import { PagesRoutingModule } from './custom.routing';
 
+// Markdown module
+import { MarkdownModule } from 'ngx-markdown';
+
+// Local Services
+import { CustomService } from './custom.service';
+
 @NgModule({
     declarations: [
         PagesComponent
     ],
     imports: [
         SharedModule,
-        PagesRoutingModule
+        PagesRoutingModule,
+        MarkdownModule.forChild()
     ],
-    exports: [],
-    providers: []
+    exports: [
+        PagesComponent
+    ],
+    providers: [
+        CustomService
+    ]
 
 })
 export class CustomPagesModule {}

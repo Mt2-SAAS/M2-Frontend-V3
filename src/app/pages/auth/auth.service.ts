@@ -32,8 +32,12 @@ export class AuthService {
         return httpOptions;
     }
 
-    private post(url: string, body: any) {
+    private post<T>(url: string, body: any) {
         return this.http.post(url, body, this.get_headers());
+    }
+
+    private get<T>(url: string) {
+        return this.http.get(url, this.get_headers());
     }
 
     auth(payload: User) {
@@ -51,6 +55,16 @@ export class AuthService {
         const url = `${this.baseUrl}/api/signup/`;
         const body = JSON.stringify(payload);
         return this.post(url, body);
+    }
+
+    active(payload: string) {
+        const url = `${this.baseUrl}/api/active/${payload}/`;
+        return this.get(url);
+    }
+
+    verify_user(username: string) {
+        const url = `${this.baseUrl}/api/info/${username}`;
+        return this.get(url);
     }
 
 }

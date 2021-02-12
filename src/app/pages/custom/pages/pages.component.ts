@@ -1,19 +1,57 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
 
+// Local Services
+import { CustomService } from '../custom.service';
+
 @Component({
-    selector: 'app-pages',
+    selector: 'pages',
     templateUrl: './pages.component.html',
-    // styleUrls: ['./pages.component.scss']
 })
 export class PagesComponent implements OnInit {
+
+    @Input() slug!: string;
+
+    title!: string;
+    markdown!: string;
+    loading: boolean = true;
     
     constructor(
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private http: CustomService
     ) { }
 
     ngOnInit() {
-        let id = this.route.snapshot.params.slug;
-        console.log(id);
+        if (!this.slug) {
+            this.route.params.subscribe( 
+                ({slug}) => {
+                    this.getData(slug);
+                }
+            )
+        }
+        this.heritage();
+    }
+
+    heritage(){
+        if (this.slug){
+            this.getData(this.slug);
+        }
+    }
+
+    getData(slug: string) {
+        this.loading = true
+        this.http.get_page(slug)
+            .subscribe( 
+                (response: any) => {
+                    this.title = response.title;
+                    this.markdown = response.content;
+                    this.loading = false;
+                },
+                () => {
+                    this.title = 'Not Fount'
+                    this.markdown = '# 404 not found'
+                    this.loading = false;
+                }
+            )
     }
 }

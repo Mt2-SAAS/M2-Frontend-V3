@@ -32,13 +32,18 @@
             ],
             "styles": [
               "src/assets/css/reborn.scss",
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/prismjs/themes/prism-okaidia.css"
             ],
             "scripts": [
               "src/assets/scripts/jq.js",
               "src/assets/scripts/hoverflow.js",
               "src/assets/scripts/slider.js",
-              "src/assets/scripts/init.js"
+              "src/assets/scripts/init.js",
+              "node_modules/marked/lib/marked.js",
+              "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/components/prism-csharp.min.js",
+              "node_modules/prismjs/components/prism-css.min.js"
             ]
           },
           "configurations": {

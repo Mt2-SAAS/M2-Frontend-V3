@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
+// Markdown module
+import { MarkdownModule } from 'ngx-markdown';
+
 // Componets
 import { AppComponent } from './app.component';
 import { BootstrapComponent } from './bootstrap/bootstrap.component';
@@ -25,6 +28,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     ServicesModule,
     AppRoutingModule,
     HttpClientModule,
+    MarkdownModule.forRoot()
+
     // JwtModule.forRoot(jwtOptions)
   ],
   providers: [{
