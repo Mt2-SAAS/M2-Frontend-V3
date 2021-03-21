@@ -14,8 +14,8 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''#!/usr/bin/env sh
-                export PATH=/home/luisito/.nvm/versions/node/v15.0.1/bin:$PATH
-                ng build --prod
+                # export PATH=/home/luisito/.nvm/versions/node/v15.0.1/bin:$PATH
+                /home/luisito/.nvm/versions/node/v15.0.1/bin/ng build --prod
                 '''
             }
         }
