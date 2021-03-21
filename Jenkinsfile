@@ -16,7 +16,7 @@ pipeline {
                 nodejs('Node15.0.1') {
                     sh '''
                     npm install
-                    ng build --pord
+                    ng build --prod
                     '''
                 }
             }
