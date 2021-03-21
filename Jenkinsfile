@@ -13,10 +13,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh '''#!/usr/bin/env sh
-                # export PATH=/home/luisito/.nvm/versions/node/v15.0.1/bin:$PATH
-                /home/luisito/.nvm/versions/node/v15.0.1/bin/ng build --prod
-                '''
+                nodejs('Node15.0.1') {
+                    sh '''
+                    npm install
+                    ng build --pord
+                    '''
+                }
             }
         }
 
