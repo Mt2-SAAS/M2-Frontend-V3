@@ -1,5 +1,11 @@
 pipeline {
-    agent any
+
+    agent {
+        docker {
+            image 'node:15-alpine' 
+            args '-p 3000:3000' 
+        }
+    }
 
 
     options {
@@ -12,20 +18,39 @@ pipeline {
 
     stages {
         stage('Build') {
+            when {
+                branch 'master'
+            }
             steps {
-                nodejs('Node15.0.1') {
-                    sh '''
+                sh '''
+                    npm install -g @angular/cli
                     npm install
                     ng build --prod
-                    '''
+                '''
+                }
+        }
+
+        stage('Release') {
+            when {
+                branch 'master'
+            }
+            steps {
+                dir('dist/metin2') {
+                    archiveArtifacts artifacts: '**', fingerprint: true
                 }
             }
         }
 
-        // stage('Testing') {
-        //     steps {
-        //         sh "docker run ${dockerImage.id} python manage.py test"
-        //     }
-        // }
+        stage('Publish') {
+            when {
+                branch 'master'
+            }
+            steps {
+                sh '''
+                echo Hola mundo
+                '''
+            }
+        }
+
     }
 }
