@@ -26,7 +26,6 @@ export class ServerInfoComponent implements OnInit {
             // )
             .subscribe(
                 success => {
-                    console.log(success);
                     this.estadisticas = success;
                     this.cargando = false;
                 },
