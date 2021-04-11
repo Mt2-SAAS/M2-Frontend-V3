@@ -13,7 +13,8 @@ const RootRoutes: Routes = [
 ];
 
 const RouterConfig: ExtraOptions = {
-    useHash: true
+    useHash: false,
+    initialNavigation: 'enabled'
 };
 
 @NgModule({

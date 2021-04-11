@@ -20,6 +20,9 @@ export class AuthService {
 
     isAuthenticated(): boolean {
         const token = this.stg.get_token();
+        if (token === undefined || token == '') {
+            return false
+        } 
         const isTokenExpired = decode.isTokenExpired(token);
         return !isTokenExpired;
     }

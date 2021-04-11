@@ -23,13 +23,12 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     BootstrapComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     SharedModule,
     ServicesModule,
     AppRoutingModule,
     HttpClientModule,
     MarkdownModule.forRoot()
-
     // JwtModule.forRoot(jwtOptions)
   ],
   providers: [{

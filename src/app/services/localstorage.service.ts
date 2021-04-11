@@ -1,34 +1,59 @@
 import { Injectable } from '@angular/core';
+import {AppComponent} from '../app.component';
+
+class LocalStorage implements Storage {
+    [name: string]: any;
+    readonly length: number = 0;
+    clear(): void {}
+    getItem(key: string): string | null  {return ''}
+    key(index: number): string | null  {return ''}
+    removeItem(key: string): void {}
+    setItem(key: string, value: string): void {}
+  }
 
 @Injectable()
 export class LocalStorageService {
 
-    constructor() {}
+    private storage: Storage;
+    [name: string]: any;
 
+    length: number = 0;
+
+    constructor() {
+        this.storage = new LocalStorage();
+    
+        AppComponent.isBrowser.subscribe(isBrowser => {
+          if (isBrowser) {
+            this.storage = localStorage;
+          }
+        });
+    }
+
+    
     set_token(token: string) {
-        localStorage.setItem('token', JSON.stringify(token));
+        this.storage.setItem('token', token);
     }
 
     get_token() {
-        if (localStorage.getItem('token') != null) {
-            return JSON.parse(localStorage.getItem('token') || '');
-        }
+
+        return this.storage.getItem('token') || '';
+
     }
 
     delete_token() {
-        localStorage.removeItem('token');
+        this.storage.removeItem('token');
     }
 
     set_item(itemName: string, item: any) {
-        localStorage.setItem(itemName, JSON.stringify(item));
+        this.storage.setItem(itemName, item);
     }
 
     get_item(itemName: string) {
-        return JSON.parse(localStorage.getItem(itemName) || '');
+        return this.storage.getItem(itemName) || '';
     }
 
     delete_item(itemName: string) {
-        localStorage.removeItem(itemName);
+        this.storage.removeItem(itemName);
     }
 
 }
