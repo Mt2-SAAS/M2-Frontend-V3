@@ -34,8 +34,6 @@ export class JoinComponent implements OnInit {
                 Validators.required,
                 Validators.minLength(4)
             ], [ this.validateUser.bind(this) ]),
-
-
             password: new FormControl('', [
                 Validators.required,
                 Validators.minLength(4)
@@ -93,12 +91,12 @@ export class JoinComponent implements OnInit {
                                 if (userbool) {
                                     resolve({success: true})
                                 } else {
-                                    resolve({success: false})
+                                    resolve(null)
                                 }
-                            }, 2000)
+                            })
                             
                         },
-                        err => console.log
+                        () => resolve(null)
                     )
             }
         )

@@ -1,56 +1,54 @@
 pipeline {
-
-    agent {
-        docker {
-            image 'node:15-alpine' 
-            args '-p 3000:3000' 
-        }
-    }
+    agent any
 
 
     options {
-        timeout(time: 4, unit: 'MINUTES')
+        timeout(time: 5, unit: 'MINUTES')
     }
 
     environment {
-        ARTIFACT_ID = "luisito666/m2-api-rest:${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
+        ARTIFACT_ID = "luisito666/m2-frontend:${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
     }
 
     stages {
         stage('Build') {
-            when {
-                branch 'master'
-            }
             steps {
-                sh '''
-                    npm install -g @angular/cli
-                    npm install
-                    ng build --prod
-                '''
-                }
-        }
-
-        stage('Release') {
-            when {
-                branch 'master'
-            }
-            steps {
-                dir('dist/metin2') {
-                    archiveArtifacts artifacts: '**', fingerprint: true
+                script {
+                   dockerImage = docker.build("${env.ARTIFACT_ID}", "-f ./Dockerfile .") 
                 }
             }
         }
 
-        stage('Publish') {
+        // stage('Testing') {
+        //     steps {
+        //         sh "docker run ${dockerImage.id} python manage.py test"
+        //     }
+        // }
+
+        stage('Publish master') {
             when {
                 branch 'master'
             }
             steps {
-                sh '''
-                echo Hola mundo
-                '''
+                script {
+                    docker.withRegistry("", "DockerHubCredentials") {
+                        dockerImage.push()
+                    }
+                }
             }
         }
 
+        stage('Publish develop') {
+            when {
+                branch 'develop'
+            }
+            steps {
+                script {
+                    docker.withRegistry("", "DockerHubCredentials") {
+                        dockerImage.push()
+                    }
+                }
+            }
+        }
     }
 }

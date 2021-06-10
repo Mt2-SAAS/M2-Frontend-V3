@@ -14,6 +14,7 @@ export interface AccountSend {
     real_name: string;
     email: string;
     social_id: number;
+    answer1: string;
 }
 
 export interface User {
@@ -21,3 +22,11 @@ export interface User {
     password: string;
 }
 
+export interface Username {
+    login: string
+}
+
+export interface Password {
+    new_password: string
+    new_password_again: string
+}

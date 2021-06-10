@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
 
 // Local Services
+import { TitleService } from 'src/app/services';
 import { CustomService } from '../custom.service';
 
 @Component({
@@ -18,7 +19,8 @@ export class PagesComponent implements OnInit {
     
     constructor(
         private route: ActivatedRoute,
-        private http: CustomService
+        private http: CustomService,
+        private tit: TitleService
     ) { }
 
     ngOnInit() {
@@ -43,6 +45,7 @@ export class PagesComponent implements OnInit {
         this.http.get_page(slug)
             .subscribe( 
                 (response: any) => {
+                    this.tit.setTitle(`${this.tit.servername} - ${response.title}`)
                     this.title = response.title;
                     this.markdown = response.content;
                     this.loading = false;

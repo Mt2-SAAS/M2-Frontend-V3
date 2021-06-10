@@ -5,10 +5,8 @@ import { NgModule } from '@angular/core';
 import { HomeComponent } from './home/home.component';
 import { PlayersComponent } from './players/players.component';
 import { GuildsComponent } from './guilds/guilds.component';
-import { TermsComponent } from './terms/terms.component';
 import { DownloadsComponent } from './downloads/downloads.component';
 import { SuccessComponent } from './success/success.component';
-import { SustainabilityComponent } from './sustainability/sustainability.component';
 
 // Guards
 import { AuthGuardService } from '../services';

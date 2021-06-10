@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 // Interfaces
-import { User, AccountSend } from './auth.interfaces';
+import { User, AccountSend, Username, Password } from './auth.interfaces';
 
 // Enviroment
 import { environment } from '../../../environments/environment';
@@ -65,6 +65,23 @@ export class AuthService {
     verify_user(username: string) {
         const url = `${this.baseUrl}/api/info/${username}`;
         return this.get(url);
+    }
+
+    reset_password(payload: Username){
+        const url = `${this.baseUrl}/api/token_reset/`;
+        const body = JSON.stringify(payload);
+        return this.post(url, body);
+    }
+
+    validate_password_token(payload: string) {
+        const url = `${this.baseUrl}/api/reset/${payload}/`;
+        return this.get(url);
+    }
+
+    process_password(password: Password, payload: string) {
+        const url = `${this.baseUrl}/api/reset/${payload}/`;
+        const body = JSON.stringify(password);
+        return this.post(url, body);
     }
 
 }
