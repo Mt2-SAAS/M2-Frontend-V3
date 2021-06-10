@@ -1,2 +1,2 @@
-export { EmailComponent } from './email/email.component';
-export { PasswordComponent } from './password/password.component';
+export { ResetPasswordComponent } from './reset-password/reset-password.component';
+export { ProcessPasswordComponent } from './process-password/process-password.component';

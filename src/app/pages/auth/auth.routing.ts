@@ -5,15 +5,15 @@ import { NgModule } from '@angular/core';
 import { LoginComponent } from './login/login.component';
 import { JoinComponent } from './join/join.component';
 import { ActiveComponent } from './active/active.component';
-import { EmailComponent, PasswordComponent } from './loss'
+import { ResetPasswordComponent, ProcessPasswordComponent } from './loss'
 
 
 const AuthRoutes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'join', component: JoinComponent },
     { path: 'active/:payload', component: ActiveComponent},
-    { path: 'email', component: EmailComponent},
-    { path: 'password', component: PasswordComponent}
+    { path: 'reset_password', component: ResetPasswordComponent},
+    { path: 'process_password/:payload', component: ProcessPasswordComponent}
 ];
 
 @NgModule({

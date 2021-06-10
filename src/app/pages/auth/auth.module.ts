@@ -7,7 +7,7 @@ import { AuthRoutingModule } from './auth.routing';
 import { LoginComponent } from './login/login.component';
 import { JoinComponent } from './join/join.component';
 import { ActiveComponent } from './active/active.component';
-import { EmailComponent, PasswordComponent } from './loss/';
+import { ResetPasswordComponent, ProcessPasswordComponent } from './loss/';
 
 // Local Services
 import { AuthService } from './auth.service';
@@ -21,8 +21,8 @@ import { SharedModule } from '../../shared/shared.module';
         LoginComponent,
         JoinComponent,
         ActiveComponent,
-        EmailComponent,
-        PasswordComponent
+        ResetPasswordComponent,
+        ProcessPasswordComponent
     ],
     imports: [
         SharedModule,

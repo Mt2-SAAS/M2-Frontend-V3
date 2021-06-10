@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  baseUrl: 'http://localhost:8000',
-  publicDomain: 'localhost:8000',
+  baseUrl: 'http://example.com',
+  publicDomain: 'example.com',
   serverName: 'Metin2 XxX'
 };

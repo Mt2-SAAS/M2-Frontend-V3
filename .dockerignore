@@ -1,0 +1,6 @@
+node_modules/
+dist/
+Jenkinsfile
+README.md
+README-es.md
+docker-compose.yaml
