@@ -1,10 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 
+//NGRX
 import { Store } from '@ngrx/store';
 import { AppState } from '../store/app.reducers';
 import { StartGetInitialData } from '../store/actions/initial_data.actions';
+
+// Inteface
 import { Page } from '../store/interfaces/initial_data.interfaces';
+
+// App Component
 import { AppComponent } from '../app.component';
+
+// Environment
+import { environment } from '../../environments/environment';
 
 
 
@@ -55,7 +63,8 @@ export class BootstrapComponent implements OnInit {
                     images.forEach( img => {
                         if(img.types === 'background'){
                            // Add new background image 
-                           document.body.style.background = ` url( ${img.image} ) no-repeat`;
+                           let image_url = `${environment.baseUrl}${img.image_url}`
+                           document.body.style.background = `url( ${image_url} ) no-repeat`;
                            document.body.style.backgroundAttachment = 'fixed'
                         }
                     });
