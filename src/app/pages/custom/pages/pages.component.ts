@@ -45,14 +45,14 @@ export class PagesComponent implements OnInit {
         this.http.get_page(slug)
             .subscribe( 
                 (response: any) => {
-                    this.tit.setTitle(`${this.tit.servername} - ${response.title}`)
+                    this.tit.setTitle(response.title);
                     this.title = response.title;
                     this.markdown = response.content;
                     this.loading = false;
                 },
                 () => {
-                    this.title = 'Not Fount'
-                    this.markdown = '# 404 not found'
+                    this.title = 'Not Fount';
+                    this.markdown = '# 404 not found';
                     this.loading = false;
                 }
             )

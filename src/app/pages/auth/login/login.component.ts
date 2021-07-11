@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.title.setTitle(this.title.servername + ' - Ingresar');
+        this.title.setTitle('Ingresar');
 
         this.form = new FormGroup({
             login: new FormControl('', [

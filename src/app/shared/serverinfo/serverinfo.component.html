@@ -7,8 +7,8 @@
         <p class="srv-on">Servidor online </p>
         <!-- <p class="srv-on"></p>
         <p class="srv-on"></p> -->
-        <!-- <div class="sep2"></div>
-        <p class="srv-mode">{{ estadisticas.online }} Jugadores online.</p> -->
+        <div *ngIf="last_online" class="sep2"></div>
+        <p *ngIf="last_online" class="srv-mode">{{ estadisticas.online }} Jugadores online.</p> 
         <div class="sep2"></div>
         <p class="srv-mode">{{ estadisticas.lastonline }} Jugadores ult. 24h</p>
         <div class="sep2"></div>
@@ -16,11 +16,11 @@
         <div class="sep2"></div>
         <p class="srv-mode">Personajes: {{ estadisticas.players }} </p>
         <div class="sep2"></div>
-        <p class="srv-mode"> Nivel Inicial: 1 </p>
+        <p class="srv-mode"> Nivel Inicial: {{ initial_level }} </p>
         <div class="sep2"></div>
-        <p class="srv-mode"> Nivel Maximo: 120</p>
+        <p class="srv-mode"> Nivel Maximo: {{ max_level }} </p>
         <div class="sep2"></div>
-        <p class="srv-mode">PvM 80% PVP 20% </p>
+        <p class="srv-mode"> {{ rates }} </p>
         <div class="sep2"></div>
     </div>
 </div>

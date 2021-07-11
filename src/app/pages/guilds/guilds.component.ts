@@ -26,7 +26,7 @@ export class GuildsComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.title.setTitle(this.title.servername + ' - Top Gremios');
+        this.title.setTitle('Top Gremios');
         this.getData();
     }
 

@@ -19,7 +19,7 @@ export class DownloadsComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.title.setTitle(this.title.servername + ' -  Descargas');
+        this.title.setTitle('Descargas');
         this.getData();
      }
 

@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 import { TitleService } from 'src/app/services';
+
+// NGRX
+import { Store } from '@ngrx/store';
+import { AppState } from '../../store/app.reducers';
 
 @Component({
     selector: 'app-home',
@@ -8,13 +13,33 @@ import { TitleService } from 'src/app/services';
 })
 export class HomeComponent implements OnInit {
 
-    url: string = "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FMetin2Lamda%2F&tabs=timeline&width=590&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=661017491492084"
+    loading!: Boolean;
+    facebook_url!: SafeResourceUrl;
+    facebook_enable!: Boolean;
 
     constructor(
-        private title: TitleService
+        private title: TitleService,
+        private store: Store<AppState>,
+        private sanitizer: DomSanitizer
     ) { }
 
     ngOnInit() {
-        this.title.setTitle(this.title.servername + ' -  Inicio');
-     }
+        this.title.setTitle('Inicio');
+        this.subscribe();
+    }
+
+    subscribe() {
+        this.store.select('init')
+            .subscribe(({
+                data: {
+                    facebook_enable,
+                    facebook_url
+                },
+                loading
+            }) => {
+                this.facebook_url = this.sanitizer.bypassSecurityTrustResourceUrl(facebook_url);
+                this.facebook_enable = facebook_enable;
+                this.loading = loading;
+            })
+    }
 }

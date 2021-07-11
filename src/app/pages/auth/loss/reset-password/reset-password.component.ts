@@ -32,7 +32,7 @@ export class ResetPasswordComponent implements OnInit {
     }
 
     ngOnInit(){
-        this.title.setTitle(this.title.servername + ' - Restablecer Contraseña');
+        this.title.setTitle('Restablecer Contraseña');
     }
 
     send() {

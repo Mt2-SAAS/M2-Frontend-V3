@@ -24,6 +24,6 @@ RUN mkdir -p $ROOT
 
 WORKDIR $ROOT
 
-COPY --from=build /app/dist/ .
+COPY --from=build /app/dist/ ./dist/
 
-CMD ["node", "/app/metin2/server/main.js"]
+CMD ["node", "/app/dist/metin2/server/main.js"]

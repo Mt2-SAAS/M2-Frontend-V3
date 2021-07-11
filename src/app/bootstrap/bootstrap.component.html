@@ -37,7 +37,7 @@
             </div>
             <div id="sidebar">
                 <a class="sb-download" [routerLink]="['/downloads']"></a>
-                <a class="sb-community" target="_blank"></a>
+                <a class="sb-community" href="{{forum_url}}" target="_blank"></a>
                 <a class="sb-guide" [routerLink]="['/pages/donations']" ></a>
                 <!-- <a class="sb-guide" [routerLink]="['/donaciones']"></a>-->
                 <div class="clear">
@@ -60,15 +60,17 @@
             <div class="clear">
             </div>
             <div id="footer">
-                <div class="f-left">
-                    <p> Luis Penagos - Cra 11 a # 14-12 Candelaria - <strong>Colombia</strong> </p>
+                <div *ngIf="footer_info_enable" class="f-left">
+                    <!-- <p> Luis Penagos - Cra 11 a # 14-12 Candelaria - <strong>Colombia</strong> </p> -->
+                    <p> {{ footer_info }} </p>
                 </div>
-                <div class="f-right">
-                    <a [routerLink]="['/pages/tyc']">Terminos del Servicio</a> &middot;
+
+                <div *ngIf="footer_menu_enable" class="f-right">
+                    <a *ngFor="let menu of footer_menu" [routerLink]="['/pages/' + menu.slug ]" > {{ menu.title }} &middot; </a> 
+                    <!-- <a [routerLink]="['/pages/tyc']">Terminos del Servicio</a> &middot;
                     <a [routerLink]="['/pages/pp']">Politica de Privacidad</a> &middot;
-                    <!-- <a href="#">Equipo</a> &middot;-->
                     <a [routerLink]="['/pages/pdv']">Politicas de devolución</a> &middot;
-                    <a [routerLink]="['/pages/contacto']">Contactanos</a> &middot;
+                    <a [routerLink]="['/pages/contacto']">Contactanos</a> &middot; -->
                 </div>
                 <div class="clear">
                 </div>

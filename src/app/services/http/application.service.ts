@@ -4,6 +4,9 @@ import { HttpClient } from '@angular/common/http';
 // Env
 import { environment } from '../../../environments/environment';
 
+// Interfaces
+import { InitialData } from '../../store/interfaces/initial_data.interfaces';
+
 
 @Injectable()
 export class ApplicationService {
@@ -32,6 +35,11 @@ export class ApplicationService {
     get_downloads() {
         const url = `${this.apiUrl}/api/downloads/`;
         return this.http.get(url);
+    }
+
+    get_initial_data(site: string) {
+        const url = `${this.apiUrl}/api/sites/${site}`;
+        return this.http.get<InitialData>(url);
     }
 
 }

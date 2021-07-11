@@ -27,7 +27,7 @@ export class JoinComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.title.setTitle(this.title.servername + ' - Registro');
+        this.title.setTitle('Registro');
 
         this.form = new FormGroup({
             login: new FormControl('', [

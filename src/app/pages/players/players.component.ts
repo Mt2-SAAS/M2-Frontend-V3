@@ -27,7 +27,7 @@ export class PlayersComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.title.setTitle(this.title.servername + ' -  Top Jugadores');
+        this.title.setTitle('Top Jugadores');
         this.getData();
     }
 

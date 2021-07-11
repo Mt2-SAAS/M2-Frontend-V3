@@ -12,7 +12,7 @@
           <a [routerLink]="['/downloads']" style="font-size: 10px;"><span class="chinese">DESCARGAR</span><br>DOWNLOAD</a>
         </li>
         <li class="menu4">
-          <a [routerLink]="['/players']" style="font-size: 10px;"><span class="chinese">TOP JUGADORES</span><br>PLAYER RANKING</a>
+          <a [routerLink]="['/players']" style="font-size: 10px;"><span class="chinese">RANKING</span><br>PLAYER RANKING</a>
         </li>
         <li *ngIf="!auth.isAuthenticated()" class="menu8">          
           <a [routerLink]="['/auth/login']" style="font-size: 10px;"><span class="chinese">Ingresar </span><br>login</a>
@@ -25,7 +25,7 @@
     </nav>
 
     <div id="logo">
-      <img class="logo" src='./assets/images/logo.png' alt="Logo" style="">
+      <img class="logo" src='{{image.image}}' alt="Logo" style="">
     </div>
 
     <div id="logo_placeholder">
