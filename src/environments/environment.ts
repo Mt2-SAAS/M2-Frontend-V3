@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   baseUrl: 'http://localhost:8000',
+  assetsUrl: 'http://localhost:8000',
   // Domain to make the auth request.
   serverName: 'Metin2 XxX'
 };

@@ -63,7 +63,7 @@ export class BootstrapComponent implements OnInit {
                     images.forEach( img => {
                         if(img.types === 'background'){
                            // Add new background image 
-                           let image_url = `${environment.baseUrl}${img.image_url}`
+                           let image_url = `${environment.assetsUrl}${img.image_url}`
                            document.body.style.background = `url( ${image_url} ) no-repeat`;
                            document.body.style.backgroundAttachment = 'fixed'
                         }
