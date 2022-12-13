@@ -33,8 +33,8 @@ export class CustomService {
         return this.http.get(url, this.get_headers());
     }
 
-    get_page(slug: string) {
-        const url = `${this.baseUrl}/api/pages/${slug}`;
+    get_page(slug: string, projectId: string) {
+        const url = `${this.baseUrl}/api/v1/page-slug/${slug}/${projectId}`;
         return this.get(url);
     }
 
