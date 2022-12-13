@@ -35,7 +35,7 @@ export class InitialDataEffects {
                     map((data: InitialData) => {
                         this.local.set_item('site-uuid', data.id);
                         return InitialDataActions.GetInitialData({data})
-                    },
+                    }),
                     catchError( err => of(InitialDataActions.ErrorInitialData({error: err})) )
                 )
             )

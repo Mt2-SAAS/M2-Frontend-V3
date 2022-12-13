@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
 
     image: Image = {
         types: '',
-        image_url: '',
+        image: '',
         name: ''
     }
 
@@ -43,7 +43,7 @@ export class NavbarComponent implements OnInit {
                     if(img.types === 'logo') {
                         
                         // this.image = img;
-                        this.image.image_url = `${environment.assetsUrl}${img.image_url}`;
+                        this.image.image = `${environment.assetsUrl}${img.image}`;
                     }
                 })
             });
