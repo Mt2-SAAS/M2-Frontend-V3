@@ -16,6 +16,7 @@ export interface InitialDataState {
 
 export const InititalDataInitialState: InitialDataState = {
     data: {
+        id: '',
         name : '',
         slug : '',
         images : [],

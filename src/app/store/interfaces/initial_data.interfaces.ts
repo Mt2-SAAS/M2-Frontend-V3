@@ -1,5 +1,6 @@
 
 export interface InitialData {
+    id : string;
     name : string;
     slug : string;
     images : Image[];
