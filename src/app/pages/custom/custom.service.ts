@@ -8,7 +8,7 @@ import { environment } from '../../../environments/environment';
 @Injectable()
 export class CustomService {
 
-    baseUrl = environment.baseUrl;
+    baseUrl = environment.serviceUrl;
 
     constructor(
         private http: HttpClient
