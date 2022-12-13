@@ -9,6 +9,8 @@ import {
     ApplicationService,
     HostnameService
   } from './index';
+  
+import { WINDOW_PROVIDERS } from './window.providers';
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import {
         TitleService,
         LocalStorageService,
         ApplicationService,
-        HostnameService
+        HostnameService,
+        WINDOW_PROVIDERS
     ],
 })
 export class ServicesModule {}
