@@ -28,8 +28,8 @@ export class DownloadsComponent implements OnInit {
          const projectId = this.local.get_item('site-uuid')
          this.services.get_downloads(projectId)
             .subscribe(
-                (success) => {
-                    this.downloads = success;
+                (success: any) => {
+                    this.downloads = success.results;
                     this.loading = false;
                 },
                 (err) => {
