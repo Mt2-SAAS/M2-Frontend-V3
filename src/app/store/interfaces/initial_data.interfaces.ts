@@ -18,7 +18,7 @@ export interface InitialData {
 
 export interface Image {
     name: string;
-    image_url: string;
+    image: string;
     types: string;
 }
 
