@@ -43,7 +43,7 @@ export class NavbarComponent implements OnInit {
                     if(img.types === 'logo') {
                         
                         // this.image = img;
-                        this.image.image = `${environment.assetsUrl}${img.image}`;
+                        this.image.image = `${img.image}`;
                     }
                 })
             });
