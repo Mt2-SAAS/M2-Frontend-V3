@@ -7,6 +7,7 @@ import {
     TitleService,
     LocalStorageService,
     ApplicationService,
+    HostnameService
   } from './index';
 
 
@@ -19,7 +20,8 @@ import {
         AuthGuardService,
         TitleService,
         LocalStorageService,
-        ApplicationService
+        ApplicationService,
+        HostnameService
     ],
 })
 export class ServicesModule {}
