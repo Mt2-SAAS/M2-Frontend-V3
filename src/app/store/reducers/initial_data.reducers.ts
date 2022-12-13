@@ -30,7 +30,8 @@ export const InititalDataInitialState: InitialDataState = {
         footer_menu_enable : false,
         footer_info_enable : false,
         forum_url : '',
-        last_online: false
+        last_online: false,
+        project: ''
     },
     loading: false,
     errors: []
