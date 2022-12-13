@@ -13,6 +13,7 @@ import { ApplicationService } from '../../services/http/application.service';
 
 // Interface
 import { InitialData } from '../interfaces';
+import { LocalStorageService } from 'src/app/services';
 
 
 @Injectable()
@@ -20,7 +21,8 @@ export class InitialDataEffects {
 
     constructor(
         private actions$: Actions,
-        private service: ApplicationService
+        private service: ApplicationService,
+        private local: LocalStorageService
     ){}
 
 
@@ -30,7 +32,10 @@ export class InitialDataEffects {
             mergeMap(
                 (action) => this.service.get_initial_data(action.slug)
                 .pipe(
-                    map((data: InitialData) => InitialDataActions.GetInitialData( {data} )),
+                    map((data: InitialData) => {
+                        this.local.set_item('site-uuid', data.id);
+                        return InitialDataActions.GetInitialData({data})
+                    },
                     catchError( err => of(InitialDataActions.ErrorInitialData({error: err})) )
                 )
             )

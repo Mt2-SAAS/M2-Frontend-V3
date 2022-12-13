@@ -33,8 +33,8 @@ export class ApplicationService {
         return this.http.get(url);
     }
 
-    get_downloads() {
-        const url = `${this.apiUrl}/api/downloads/`;
+    get_downloads(projectId: string) {
+        const url = `${this.serviceUrl}/api/v1/download-project/${projectId}`;
         return this.http.get(url);
     }
 

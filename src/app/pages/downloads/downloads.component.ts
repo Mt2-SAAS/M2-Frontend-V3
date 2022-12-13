@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TitleService } from 'src/app/services';
+import { LocalStorageService, TitleService } from 'src/app/services';
 
 import { ApplicationService } from '../../services/http/application.service';
 
@@ -15,7 +15,8 @@ export class DownloadsComponent implements OnInit {
 
     constructor(
         private title: TitleService,
-        private services: ApplicationService
+        private services: ApplicationService,
+        private local: LocalStorageService
     ) { }
 
     ngOnInit() {
@@ -24,7 +25,8 @@ export class DownloadsComponent implements OnInit {
      }
 
      getData() {
-         this.services.get_downloads()
+         const projectId = this.local.get_item('site-uuid')
+         this.services.get_downloads(projectId)
             .subscribe(
                 (success) => {
                     this.downloads = success;
