@@ -28,7 +28,7 @@ export class InitialDataEffects {
         () => this.actions$.pipe(
             ofType(InitialDataActions.StartGetInitialData),
             mergeMap(
-                () => this.service.get_initial_data('default')
+                (action) => this.service.get_initial_data(action.slug)
                 .pipe(
                     map((data: InitialData) => InitialDataActions.GetInitialData( {data} )),
                     catchError( err => of(InitialDataActions.ErrorInitialData({error: err})) )

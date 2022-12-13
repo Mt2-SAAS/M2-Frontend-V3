@@ -12,6 +12,7 @@ import { InitialData } from '../../store/interfaces/initial_data.interfaces';
 export class ApplicationService {
 
     apiUrl = environment.baseUrl;
+    serviceUrl = environment.serviceUrl;
 
     constructor(
         private http: HttpClient
@@ -38,7 +39,7 @@ export class ApplicationService {
     }
 
     get_initial_data(site: string) {
-        const url = `${this.apiUrl}/api/sites/${site}`;
+        const url = `${this.serviceUrl}/api/v1/site-slug/${site}`;
         return this.http.get<InitialData>(url);
     }
 
