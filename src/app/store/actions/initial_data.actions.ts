@@ -4,7 +4,8 @@ import { InitialData } from '../interfaces';
 
 
 export const StartGetInitialData = createAction(
-    '[InitData] Start Init Data'
+    '[InitData] Start Init Data',
+    props<{slug: string}>()
 );
 
 

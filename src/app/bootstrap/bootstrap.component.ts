@@ -13,6 +13,7 @@ import { AppComponent } from '../app.component';
 
 // Environment
 import { environment } from '../../environments/environment';
+import { HostnameService } from '../services';
 
 
 
@@ -29,7 +30,8 @@ export class BootstrapComponent implements OnInit {
     forum_url!: string;
 
     constructor(
-        private store: Store<AppState>
+        private store: Store<AppState>,
+        private hnService: HostnameService
     ) { }
 
     ngOnInit() { 
@@ -76,6 +78,8 @@ export class BootstrapComponent implements OnInit {
     }
 
     get_data() {
-        this.store.dispatch(StartGetInitialData());
+        const hostname = this.hnService.getHostname();
+        const hostSplit = hostname.split('.')[0]
+        this.store.dispatch(StartGetInitialData({slug: hostSplit}));
     }
 }
