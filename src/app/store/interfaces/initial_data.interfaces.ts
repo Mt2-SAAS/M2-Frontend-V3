@@ -15,6 +15,7 @@ export interface InitialData {
     footer_info_enable : Boolean;
     forum_url : string;
     last_online: Boolean;
+    project: string;
 }
 
 export interface Image {
