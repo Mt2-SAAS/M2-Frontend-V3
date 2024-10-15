@@ -1,5 +1,14 @@
 pipeline {
-    agent any
+    agent {
+        kubernetes {
+            containerTemplate {
+                   name 'docker'
+                   image 'docker:latest'
+                   ttyEnabled true
+                   command 'cat'
+            }
+        }
+    }
 
 
     options {
