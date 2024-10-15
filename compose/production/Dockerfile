@@ -1,4 +1,4 @@
-FROM node:15.0.1-alpine3.12 as build
+FROM node:10.13.0 as build
 
 LABEL maintainer="Luis Penagos <luispenagos91@gmail.com>"
 
@@ -6,7 +6,7 @@ ENV ROOT=/app
 
 RUN mkdir -p $ROOT
 
-RUN npm install -g @angular/cli 
+RUN npm install -g @angular/cli@11.1.4
 
 COPY ./ $ROOT
 

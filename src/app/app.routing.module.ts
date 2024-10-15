@@ -13,7 +13,7 @@ const RootRoutes: Routes = [
 ];
 
 const RouterConfig: ExtraOptions = {
-    useHash: false,
+    useHash: true,
     initialNavigation: 'enabled'
 };
 
