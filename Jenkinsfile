@@ -8,6 +8,7 @@ pipeline {
 
     environment {
         ARTIFACT_ID = "luisito666/m2-frontend:${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
+        DOCKER_HOST = "172.16.1.25"
     }
 
     stages {

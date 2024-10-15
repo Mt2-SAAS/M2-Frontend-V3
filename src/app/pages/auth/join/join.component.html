@@ -67,6 +67,9 @@
             <label>Codigo de borrado:</label>
             <p>
                 <input type="number" formControlName="social_id">
+                <span *ngIf="form.controls['social_id'].errors?.['required'] && form.controls['social_id'].touched">
+                    El email es obligatorio.
+                </span>
                 <span *ngIf="form.controls['social_id'].errors?.pattern">
                     Por lo menos 7 caracteres.
                 </span>

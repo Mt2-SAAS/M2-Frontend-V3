@@ -15,7 +15,7 @@
               <tr *ngFor="let download of downloads">
                   <td>{{ download.provider }}</td>
                   <td>{{ download.weight }} MB</td>
-                  <td>{{ download.create_at | date:'medium' }} </td>
+                  <td>{{ download.created_at | date:'medium' }} </td>
                   <td><a href="{{ download.link }}" target="blank">Link </a></td>
               </tr>
           </table>
