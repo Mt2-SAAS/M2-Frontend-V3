@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 // Navbar
 import { NavbarComponent } from './navbar/navbar.component';
@@ -25,12 +26,14 @@ import { LoaderComponent } from './loader/loader.component';
         CommonModule,
         RouterModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        NgxCaptchaModule
     ],
     exports: [
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
+        NgxCaptchaModule,
         RouterModule,
         NavbarComponent,
         GuildInfoComponent,

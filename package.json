@@ -30,6 +30,7 @@
     "@ngrx/store-devtools": "^12.2.0",
     "@nguniversal/express-engine": "^11.1.2",
     "express": "^4.15.2",
+    "ngx-captcha": "^9.0.1",
     "ngx-markdown": "^11.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

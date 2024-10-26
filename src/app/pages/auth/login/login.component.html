@@ -21,7 +21,17 @@
                 <span *ngIf="form.controls['password'].errors?.required && form.controls['password'].touched">El password es obligatorio.</span>
                 <span *ngIf="form.controls['password'].errors?.minlength">Por lo menos 4 caracteres.</span>
                 </p>
+
+                <p>
+                    <ngx-recaptcha2 #captchaElem
+                        [siteKey]="siteKey"
+                        [useGlobalDomain]="false"
+                        formControlName="recaptcha">
+                    </ngx-recaptcha2>
+                </p>
+                
                 <p> <a [routerLink]="['/auth/reset_password']">Olvido su Contraseña?</a> </p>
+
                 <input  (click)="ingresar()"
                         type="submit"
                         value="{{ formInputValue }}"

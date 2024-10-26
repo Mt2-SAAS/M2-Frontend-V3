@@ -74,6 +74,15 @@
                     Por lo menos 7 caracteres.
                 </span>
             </p>
+
+            <p>
+                <ngx-recaptcha2 #captchaElem
+                    [siteKey]="siteKey"
+                    [useGlobalDomain]="false"
+                    formControlName="recaptcha">
+                </ngx-recaptcha2>
+            </p>
+
             <p>
                 <input type="checkbox" (change)="truecheck()">
                 <span>Aceptar los <a [routerLink]="['/pages/tyc']">terminos y condiciones.</a></span>

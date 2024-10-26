@@ -8,6 +8,8 @@ import { AuthService } from '../auth.service';
 // Global Services
 import { TitleService } from 'src/app/services';
 
+import { environment } from 'src/environments/environment';
+
 
 @Component({
     selector: 'app-login',
@@ -19,6 +21,8 @@ export class LoginComponent implements OnInit {
 
     form!: FormGroup ;
     formInputValue = 'Ingresar';
+
+    siteKey: string = environment.reCapchaSiteKey;
 
     constructor(
         private title: TitleService,
@@ -37,6 +41,9 @@ export class LoginComponent implements OnInit {
             password: new FormControl('', [
                 Validators.required,
                 Validators.minLength(4)
+            ]),
+            recaptcha: new FormControl('', [
+                Validators.required
             ])
         });
 

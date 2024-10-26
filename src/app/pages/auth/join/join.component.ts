@@ -9,6 +9,7 @@ import { AuthService } from '../auth.service';
 import { TitleService } from 'src/app/services';
 import { Observable } from 'rxjs';
 
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-join',
@@ -19,6 +20,8 @@ export class JoinComponent implements OnInit {
     form!: FormGroup;
     formInputValue = 'Registrar';
     checkbox = false;
+
+    siteKey: string = environment.reCapchaSiteKey;
 
     constructor(
         private title: TitleService,
@@ -50,6 +53,9 @@ export class JoinComponent implements OnInit {
             social_id: new FormControl('', [
                 Validators.required,
                 Validators.pattern('.{7,7}')
+            ]),
+            recaptcha: new FormControl('', [
+                Validators.required
             ])
         });
 
