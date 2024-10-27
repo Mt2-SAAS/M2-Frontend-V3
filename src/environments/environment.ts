@@ -9,7 +9,7 @@ export const environment = {
   serviceUrl: 'http://localhost:8000',
   // Domain to make the auth request.
   serverName: 'Metin2 XxX',
-  reCapchaSiteKey: '6LcrK20qAAAAABRN_8TqbRZ42o8R1iBZmC7QOSV_'
+  reCapchaSiteKey: 'xxx'
 };
 
 /*
