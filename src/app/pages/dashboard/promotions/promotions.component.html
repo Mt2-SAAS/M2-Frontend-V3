@@ -17,7 +17,15 @@
                 <span class="input_sign_in_div" *ngIf="form.controls['code'].errors?.pattern" for="login">* Intruduce un formato valido.</span>
     
         </p>
-        
+
+        <p>
+            <ngx-recaptcha2 #captchaElem
+                [siteKey]="siteKey"
+                [useGlobalDomain]="false"
+                formControlName="recaptcha">
+            </ngx-recaptcha2>
+        </p>
+
     </div>
 
 

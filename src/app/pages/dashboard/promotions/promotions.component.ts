@@ -5,6 +5,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TitleService } from 'src/app/services';
 import { DashboardService } from '../dashboard.service';
 
+import { environment } from 'src/environments/environment';
+
 @Component({
   selector: 'promotions',
   templateUrl: './promotions.component.html',
@@ -15,6 +17,7 @@ export class PromoComponent implements OnInit {
   status: string = '';
   form: FormGroup
   // loading: boolean;
+  siteKey: string = environment.reCapchaSiteKey;
 
   constructor(
     private title: TitleService,
@@ -26,6 +29,9 @@ export class PromoComponent implements OnInit {
           Validators.minLength(4),
           Validators.pattern(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/i)
         ]),
+        recaptcha: new FormControl('', [
+            Validators.required
+        ])
       });
   }
 

@@ -5,6 +5,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TitleService } from 'src/app/services';
 import { AuthService } from '../../auth.service';
 
+import { environment } from 'src/environments/environment';
+
 
 @Component({
     selector: 'app-email',
@@ -18,6 +20,8 @@ export class ResetPasswordComponent implements OnInit {
     form!: FormGroup
     formInputValue = 'Recuperar';
 
+    siteKey: string = environment.reCapchaSiteKey;
+
 
     constructor(
         private title: TitleService,
@@ -27,6 +31,9 @@ export class ResetPasswordComponent implements OnInit {
             login: new FormControl('', [
                 Validators.required,
                 Validators.minLength(4)
+            ]),
+            recaptcha: new FormControl('', [
+                Validators.required
             ])
         });
     }

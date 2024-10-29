@@ -5,6 +5,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TitleService } from 'src/app/services';
 import { DashboardService } from '../dashboard.service';
 
+import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'manager-passwd',
@@ -15,6 +17,8 @@ export class PasswordComponent implements OnInit {
 
   form: FormGroup
   message: any;
+
+  siteKey: string = environment.reCapchaSiteKey;
 
   constructor(
     private http: DashboardService,
@@ -33,6 +37,9 @@ export class PasswordComponent implements OnInit {
       new_password_again: new FormControl('', [
         Validators.required,
         Validators.minLength(6)
+      ]),
+      recaptcha: new FormControl('', [
+          Validators.required
       ])
     })
   }
