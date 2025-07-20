@@ -16,12 +16,15 @@ export interface InitialData {
     forum_url : string;
     last_online: Boolean;
     project: string;
+    downloads: Download[];
 }
 
 export interface Image {
-    name: string;
+    filename: string;
+    original_filename: string;
     image: string;
-    types: string;
+    image_type: string;
+    file_path: string;
 }
 
 export interface Page {
@@ -31,4 +34,14 @@ export interface Page {
     published: Boolean;
     create_at: Date;
     modified_at: Date;
+}
+
+export interface Download {
+    provider: string
+    size: string
+    link: string
+    category: string
+    published: boolean
+    site_id: string
+    id: string
 }

@@ -9,10 +9,3 @@ services:
     image: mt2web-frontend
     ports:
       - 8001:4000
-    networks: 
-      - my-proxy-net
-
-networks:
-  my-proxy-net:
-    external:
-      name: custom_network

@@ -9,15 +9,16 @@ import { TitleService, ApplicationService } from 'src/app/services';
 export class GuildsComponent implements OnInit {
 
 
-    cargando = true;
-    gremios: any;
+    loading = true;
+    guilds: any[] = []; // Array to hold guild data
 
     // Paginator info
-    pagina = 1;
-    realpag = 1;
-    nextURL: string = '';
-    previustURL: string = '';
+    currentPage = 1;
+    nextURL: boolean = false;
+    previustURL: boolean = false;
     total: number = 0;
+    totalPages: number = 0;
+    perPage: number = 0;
     boton = true;
 
     constructor(
@@ -34,11 +35,16 @@ export class GuildsComponent implements OnInit {
         await this.service.get_guilds(page)
             .subscribe(
                 (success: any) => {
-                    this.gremios = success.results;
-                    this.total = success.count;
-                    this.nextURL = success.next;
-                    this.previustURL = success.previous;
-                    this.cargando = false;
+                    // Extract guild data from numbered array format
+                    
+                    this.guilds = success.response;
+                    this.total = success.total;
+                    this.totalPages = success.total_pages;
+                    this.perPage = success.per_page;
+                    this.nextURL = success.has_next;
+                    this.previustURL = success.has_prev;
+                    this.currentPage = success.page;
+                    this.loading = false;
                     this.boton = true
                 },
                 err => {
@@ -48,15 +54,18 @@ export class GuildsComponent implements OnInit {
     }
 
     getNexGuild() {
-        this.boton = false;
-        this.realpag = this.realpag + 1;
-        this.pagina = this.pagina + 20;
-        this.getData(this.realpag);
+        if (this.nextURL) {
+            this.boton = false;
+            this.currentPage = this.currentPage + 1;
+            this.getData(this.currentPage);
+        }
     }
+    
     getPrevGuild() {
-        this.boton = false;
-        this.realpag = this.realpag - 1;
-        this.pagina = this.pagina - 20;
-        this.getData(this.realpag);
+        if (this.previustURL) {
+            this.boton = false;
+            this.currentPage = this.currentPage - 1;
+            this.getData(this.currentPage);
+        }
     }
 }

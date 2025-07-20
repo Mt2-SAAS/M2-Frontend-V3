@@ -29,7 +29,7 @@ export class DownloadsComponent implements OnInit {
          this.services.get_downloads(projectId)
             .subscribe(
                 (success: any) => {
-                    this.downloads = success.results;
+                    this.downloads = success.response;
                     this.loading = false;
                 },
                 (err) => {

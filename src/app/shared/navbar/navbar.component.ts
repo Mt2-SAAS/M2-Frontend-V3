@@ -11,6 +11,12 @@ import { Image } from '../../store/interfaces/initial_data.interfaces';
 // Environment
 import { environment } from '../../../environments/environment';
 
+// TODO: Remove this when the app is ready
+// We need to move to another file
+// const IMG_BG = 'bg'; // Background image type
+const IMG_LOGO = 'logo'; // Logo image type
+
+
 @Component({
     selector: 'app-navbar',
     templateUrl: './navbar.component.html'
@@ -18,9 +24,11 @@ import { environment } from '../../../environments/environment';
 export class NavbarComponent implements OnInit {
 
     image: Image = {
-        types: '',
-        image: '',
-        name: ''
+        image_type: '',
+        file_path: '',
+        filename: '',
+        original_filename: '',
+        image: ''
     }
 
     constructor(
@@ -40,10 +48,8 @@ export class NavbarComponent implements OnInit {
                 }
             }) => {
                 images.forEach( img => {
-                    if(img.types === 'logo') {
-                        
-                        // this.image = img;
-                        this.image.image = `${img.image}`;
+                    if(img.image_type === IMG_LOGO) {
+                        this.image.image = `${environment.assetsUrl}${img.file_path}`;
                     }
                 })
             });

@@ -33,7 +33,7 @@ export class InitialDataEffects {
                 (action) => this.service.get_initial_data(action.slug)
                 .pipe(
                     map((data: InitialData) => {
-                        this.local.set_item('site-uuid', data.project);
+                        this.local.set_item('site-uuid', data.id);
                         return InitialDataActions.GetInitialData({data})
                     }),
                     catchError( err => of(InitialDataActions.ErrorInitialData({error: err})) )

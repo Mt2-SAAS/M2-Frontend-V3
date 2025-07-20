@@ -24,7 +24,7 @@ export class PlayerInfoComponent implements OnInit {
     getData() {
         this.services.get_players()
             .pipe(
-                map((res: any) => res.results)
+                map((res: any) => res.response)
             )
             .subscribe(
                 success => {

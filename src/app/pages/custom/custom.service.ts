@@ -34,7 +34,7 @@ export class CustomService {
     }
 
     get_page(slug: string, projectId: string) {
-        const url = `${this.baseUrl}/api/v1/page-slug/${slug}/${projectId}`;
+        const url = `${this.baseUrl}/api/v1/game/pages/slug/${slug}`;
         return this.get(url);
     }
 

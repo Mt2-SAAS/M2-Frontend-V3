@@ -31,7 +31,8 @@ export const InititalDataInitialState: InitialDataState = {
         footer_info_enable : false,
         forum_url : '',
         last_online: false,
-        project: ''
+        project: '',
+        downloads: []
     },
     loading: false,
     errors: []

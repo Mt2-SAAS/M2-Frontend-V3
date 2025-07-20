@@ -10,15 +10,16 @@ import { TitleService, ApplicationService } from 'src/app/services';
 })
 export class PlayersComponent implements OnInit {
 
-    cargando = true;
-    jugadores: any;
+    loading = true;
+    players: any[] = []; // Array to hold player data
 
     // Paginator info
-    pagina = 1;
-    realpag = 1;
-    nextURL: string = '';
-    previustURL: string = '';
+    currentPage = 1;
+    nextURL: boolean = false;
+    previustURL: boolean = false;
     total: number = 0;
+    totalPages: number = 0;
+    perPage: number = 0;
     boton = true;
 
     constructor(
@@ -35,11 +36,14 @@ export class PlayersComponent implements OnInit {
         this.service.get_players(page)
             .subscribe(
                 (success: any) => {
-                    this.jugadores = success.results;
-                    this.total = success.count;
-                    this.nextURL = success.next;
-                    this.previustURL = success.previous;
-                    this.cargando = false;
+                    this.players = success.response;
+                    this.total = success.total;
+                    this.totalPages = success.total_pages;
+                    this.perPage = success.per_page;
+                    this.nextURL = success.has_next;
+                    this.previustURL = success.has_prev;
+                    this.currentPage = success.page;
+                    this.loading = false;
                     this.boton = true
                 },
                 err => {
@@ -49,16 +53,19 @@ export class PlayersComponent implements OnInit {
     }
 
     getNexPlayer() {
-        this.boton = false;
-        this.realpag = this.realpag + 1;
-        this.pagina = this.pagina + 20;
-        this.getData(this.realpag);
+        if (this.nextURL) {
+            this.boton = false;
+            this.currentPage = this.currentPage + 1;
+            this.getData(this.currentPage);
+        }
     }
+    
     getPrevPlayer() {
-        this.boton = false;
-        this.realpag = this.realpag - 1;
-        this.pagina = this.pagina - 20;
-        this.getData(this.realpag);
+        if (this.previustURL) {
+            this.boton = false;
+            this.currentPage = this.currentPage - 1;
+            this.getData(this.currentPage);
+        }
     }
 
 }

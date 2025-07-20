@@ -12,13 +12,14 @@ import { AppState } from '../../store/app.reducers';
 })
 export class ServerInfoComponent implements OnInit {
 
-    cargando = true;
-    estadisticas: any;
+    loading = true;
+    stats: any;
 
     initial_level!: string;
     max_level!: string;
     rates!: string;
     last_online!: Boolean;
+    slug!: string;
 
     constructor(
         private services: ApplicationService,
@@ -26,19 +27,19 @@ export class ServerInfoComponent implements OnInit {
     ) { }
 
     ngOnInit() { 
-        this.getData();
         this.subscribe();
+        // this.getData();
     }
 
-    getData() {
-        this.services.get_stats()
+    getData(slug: string ) {
+        this.services.get_stats(slug)
             // .pipe(
             //     map((res: any) => res.results)
             // )
             .subscribe(
                 success => {
-                    this.estadisticas = success;
-                    this.cargando = false;
+                    this.stats = success;
+                    this.loading = false;
                 },
                 err => {
                     console.error(err);
@@ -53,13 +54,16 @@ export class ServerInfoComponent implements OnInit {
                     initial_level,
                     max_level,
                     rates,
-                    last_online
+                    last_online,
+                    slug
                 }
             }) => {
                 this.initial_level = initial_level;
                 this.max_level = max_level;
                 this.rates = rates;
                 this.last_online = last_online;
+                this.slug = slug;
+                if(slug) this.getData(slug)
             })
     }
 

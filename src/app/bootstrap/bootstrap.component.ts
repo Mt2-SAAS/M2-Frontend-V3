@@ -13,8 +13,12 @@ import { AppComponent } from '../app.component';
 
 // Environment
 import { environment } from '../../environments/environment';
-import { HostnameService } from '../services';
+// import { HostnameService } from '../services';
 
+// TODO: Remove this when the app is ready
+// We need to move to another file
+const IMG_BG = 'bg'; // Background image type
+// const IMG_LOGO = 'logo'; // Logo image type
 
 
 @Component({
@@ -31,14 +35,11 @@ export class BootstrapComponent implements OnInit {
 
     constructor(
         private store: Store<AppState>,
-        private hnService: HostnameService
     ) { }
 
     ngOnInit() { 
         this.subscribe();
-        
         this.get_data();
-        //console.log('Sisa mi perro')
     }
 
     subscribe() {
@@ -63,9 +64,9 @@ export class BootstrapComponent implements OnInit {
                 if (isBrowser) {
 
                     images.forEach( img => {
-                        if(img.types === 'background'){
+                        if(img.image_type === IMG_BG){
                            // Add new background image 
-                           let image_url = `${img.image}`;
+                           let image_url = `${environment.assetsUrl}${img.file_path}`;
                            document.body.style.background = `url( ${image_url} ) no-repeat`;
                            document.body.style.backgroundSize = 'cover';
                            document.body.style.backgroundAttachment = 'fixed';
@@ -79,8 +80,18 @@ export class BootstrapComponent implements OnInit {
     }
 
     get_data() {
+        // This is commented because the app is not ready yet
+        // We need to define a new way to get the initial slug
+        
+        /*let hostSplit;
         const hostname = this.hnService.getHostname();
-        const hostSplit = hostname.split('.')[0]
-        this.store.dispatch(StartGetInitialData({slug: hostSplit}));
+
+        if (hostname == 'localhost') {
+            hostSplit = hostname
+        } else {
+            hostSplit = hostname.split('.')[0]
+        }*/
+        
+        this.store.dispatch(StartGetInitialData({slug: "string"}));
     }
 }

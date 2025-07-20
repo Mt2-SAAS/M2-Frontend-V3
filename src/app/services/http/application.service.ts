@@ -18,28 +18,28 @@ export class ApplicationService {
         private http: HttpClient
     ) {}
 
-    get_guilds(page: number = 1) {
-        const url = `${this.apiUrl}/api/guild_rank/?page=${page}`;
+    get_guilds(page: number = 1, per_page: number = 20) {
+        const url = `${this.apiUrl}/api/v1/game/guilds?page=${page}&per_page=${per_page}`;
         return this.http.get(url);
     }
 
-    get_players(page: number = 1) {
-        const url = `${this.apiUrl}/api/player_rank/?page=${page}`;
+    get_players(page: number = 1, per_page: number = 20) {
+        const url = `${this.apiUrl}/api/v1/game/players?page=${page}&per_page=${per_page}`;
         return this.http.get(url);
     }
 
-    get_stats() {
-        const url = `${this.apiUrl}/api/server_status/`;
+    get_stats(site_slug: string) {
+        const url = `${this.apiUrl}/api/v1/game/sites/${site_slug}/stats`;
         return this.http.get(url);
     }
 
     get_downloads(projectId: string) {
-        const url = `${this.serviceUrl}/api/v1/download-project/${projectId}`;
+        const url = `${this.serviceUrl}/api/v1/game/downloads/site/${projectId}?page=1&per_page=20`;
         return this.http.get(url);
     }
 
-    get_initial_data(site: string) {
-        const url = `${this.serviceUrl}/api/v1/site-slug/${site}`;
+    get_initial_data(slug: string) {
+        const url = `${this.serviceUrl}/api/v1/game/sites/slug/${slug}`;
         return this.http.get<InitialData>(url);
     }
 

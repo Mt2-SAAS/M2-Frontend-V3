@@ -6,7 +6,7 @@
             <p>
                 El ranking sera actualizado cada 24 horas.
             </p>
-            <table class="top-centrado" *ngIf="!cargando; else elseblock">
+            <table class="top-centrado" *ngIf="!loading; else elseblock">
                 <tr>
                     <td class="color-white">Posición </td>
                     <td class="color-white">Nombre </td>
@@ -16,12 +16,12 @@
                     <!--<td></td>-->
                 </tr>
 
-                <tr *ngFor="let gremio of gremios; let i = index">
-                    <td class="color-white"> {{  i + pagina }} </td>
-                    <td class="color-white"> {{ gremio.name }} </td>
-                    <td class="color-white"> {{ gremio.level }} </td>
-                    <td class="color-white"> {{ gremio.exp }} </td>
-                    <td class="color-white"> {{ gremio.ladder_point }} </td>
+                <tr *ngFor="let guild of guilds; let i = index">
+                    <td class="color-white"> {{ i + 1 + (currentPage - 1) * perPage }} </td>
+                    <td class="color-white"> {{ guild.name }} </td>
+                    <td class="color-white"> {{ guild.level }} </td>
+                    <td class="color-white"> {{ guild.exp }} </td>
+                    <td class="color-white"> {{ guild.ladder_point }} </td>
                     <!--<td></td>-->
 
                 </tr>
@@ -30,7 +30,7 @@
                 <loader></loader>
             </ng-template>
             <div class="pagination">
-                <span *ngIf="!cargando" class="page-links">
+                <span *ngIf="!loading" class="page-links">
                     <button *ngIf="previustURL" 
                             (click)="getPrevGuild()" 
                             [disabled]="!boton"
@@ -38,7 +38,7 @@
                             class="boton-madera">Anterior</button>
                     <!-- <a *ngIf="previustURL" (click)="getNexPlayer(previustURL)" class="puntero">Anterior</a>-->
                     <span class="page-current">
-                        Pagina {{ realpag }} de {{ (total / 20) - (( total % 20 ) / 20) + 1 }}.
+                        Pagina {{ currentPage }} de {{ totalPages }}.
                     </span>
                     <button *ngIf="nextURL" 
                             (click)="getNexGuild()" 

@@ -3,18 +3,18 @@
     <h5>Informaci&oacute;n</h5>
     <hr>
     <!-- Servers -->
-    <div *ngIf="!cargando; else elseblock" class="srvstatus">
+    <div *ngIf="!loading; else elseblock" class="srvstatus">
         <p class="srv-on">Servidor online </p>
         <!-- <p class="srv-on"></p>
         <p class="srv-on"></p> -->
         <div *ngIf="last_online" class="sep2"></div>
-        <p *ngIf="last_online" class="srv-mode">{{ estadisticas.online }} Jugadores online.</p> 
+        <p *ngIf="last_online" class="srv-mode">{{ stats.online_players_5_minutes }} Jugadores online.</p> 
         <div class="sep2"></div>
-        <p class="srv-mode">{{ estadisticas.lastonline }} Jugadores ult. 24h</p>
+        <p class="srv-mode"> {{ stats.online_player_24_hours }} Jugadores ult. 24h</p>
         <div class="sep2"></div>
-        <p class="srv-mode">Registros: {{ estadisticas.accounts }} </p>
+        <p class="srv-mode">Registros: {{ stats.total_accounts }} </p>
         <div class="sep2"></div>
-        <p class="srv-mode">Personajes: {{ estadisticas.players }} </p>
+        <p class="srv-mode">Personajes: {{ stats.total_players }} </p>
         <div class="sep2"></div>
         <p class="srv-mode"> Nivel Inicial: {{ initial_level }} </p>
         <div class="sep2"></div>
